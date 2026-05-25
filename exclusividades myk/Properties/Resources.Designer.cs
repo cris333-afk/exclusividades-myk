@@ -69,5 +69,25 @@ namespace exclusividades_myk.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhatsApp_Image_2026_05_25_at_10_18_33_AM {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp Image 2026-05-25 at 10.18.33 AM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhatsApp_Image_2026_05_25_at_10_18_33_AM__1_ {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp Image 2026-05-25 at 10.18.33 AM (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

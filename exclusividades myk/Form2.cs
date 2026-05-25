@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Text;
 using System.Windows.Forms;
-using System.Drawing;
 
 namespace exclusividades_myk
 {
@@ -20,6 +21,7 @@ namespace exclusividades_myk
             EstiloBoton(btnReportes);
             EstiloBoton(btnInventario);
             EstiloBoton(btnSalir);
+            this.DoubleBuffered = true;
         }
 
         private void EstiloBoton(Button btn)
@@ -33,7 +35,7 @@ namespace exclusividades_myk
 
             btn.BackColor = Color.FromArgb(245, 245, 245);
 
-            
+
 
             btn.Font = new Font("Segoe UI Semibold", 10);
 
@@ -52,5 +54,31 @@ namespace exclusividades_myk
             btn.FlatAppearance.MouseDownBackColor =
                 Color.FromArgb(200, 245, 245);
         }
+
+        private void panelMenu_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+            // Círculo grande superior
+            using (SolidBrush brush1 = new SolidBrush(Color.FromArgb(40, 255, 255, 255)))
+            {
+                g.FillEllipse(brush1, -80, -50, 220, 220);
+            }
+
+            // Círculo medio
+            using (SolidBrush brush2 = new SolidBrush(Color.FromArgb(25, 255, 255, 255)))
+            {
+                g.FillEllipse(brush2, 120, 200, 180, 180);
+            }
+
+            // Círculo inferior
+            using (SolidBrush brush3 = new SolidBrush(Color.FromArgb(18, 255, 255, 255)))
+            {
+                g.FillEllipse(brush3, -50, 450, 250, 250);
+            }
+        }
     }
-}
+    }
+

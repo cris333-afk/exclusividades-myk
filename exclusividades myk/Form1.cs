@@ -1,5 +1,5 @@
 using System.Runtime.InteropServices;
-
+using System.Drawing.Drawing2D;
 
 
 
@@ -10,6 +10,7 @@ namespace exclusividades_myk
         public Form1()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
         }
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -32,6 +33,36 @@ namespace exclusividades_myk
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
 
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+            // Círculo grande superior
+            using (SolidBrush brush1 = new SolidBrush(Color.FromArgb(40, 255, 255, 255)))
+            {
+                g.FillEllipse(brush1, -80, -50, 220, 220);
+            }
+
+            // Círculo medio
+            using (SolidBrush brush2 = new SolidBrush(Color.FromArgb(25, 255, 255, 255)))
+            {
+                g.FillEllipse(brush2, 120, 200, 180, 180);
+            }
+
+            // Círculo inferior
+            using (SolidBrush brush3 = new SolidBrush(Color.FromArgb(18, 255, 255, 255)))
+            {
+                g.FillEllipse(brush3, -50, 450, 250, 250);
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
         }
     }
