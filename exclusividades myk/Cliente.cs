@@ -4,20 +4,17 @@ using System.Text;
 
 namespace exclusividades_myk
 {
-    public class Producto
+    public class Cliente
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
-        public double Precio { get; set; }
-        public int Stock { get; set; }
+        public string Telefono { get; set; }
 
-        public Producto(int id, string nombre, double precio, int stock)
+        public Cliente(int id, string nombre, string telefono)
         {
             Id = id;
             Nombre = nombre;
-            Precio = precio;
-            Stock = stock;
+            Telefono = telefono;
         }
     }
 }
-

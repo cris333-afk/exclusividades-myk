@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle19 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle20 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             panelMenu = new Panel();
             picLogo = new PictureBox();
             btnInventario = new Button();
@@ -170,6 +170,7 @@
             btnProductos.TabIndex = 0;
             btnProductos.Text = "Productos";
             btnProductos.UseVisualStyleBackColor = false;
+            btnProductos.Click += btnProductos_Click;
             // 
             // panelContenido
             // 
@@ -206,36 +207,36 @@
             // 
             // colID
             // 
-            dataGridViewCellStyle16.BackColor = Color.FromArgb(27, 185, 190);
-            dataGridViewCellStyle16.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            colID.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(27, 185, 190);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            colID.DefaultCellStyle = dataGridViewCellStyle1;
             colID.HeaderText = "ID";
             colID.MinimumWidth = 6;
             colID.Name = "colID";
             // 
             // colCliente
             // 
-            dataGridViewCellStyle17.BackColor = Color.FromArgb(27, 185, 190);
-            dataGridViewCellStyle17.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            colCliente.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(27, 185, 190);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            colCliente.DefaultCellStyle = dataGridViewCellStyle2;
             colCliente.HeaderText = "Cliente";
             colCliente.MinimumWidth = 6;
             colCliente.Name = "colCliente";
             // 
             // colProducto
             // 
-            dataGridViewCellStyle18.BackColor = Color.FromArgb(27, 185, 190);
-            dataGridViewCellStyle18.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            colProducto.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(27, 185, 190);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            colProducto.DefaultCellStyle = dataGridViewCellStyle3;
             colProducto.HeaderText = "Producto";
             colProducto.MinimumWidth = 6;
             colProducto.Name = "colProducto";
             // 
             // colTotal
             // 
-            dataGridViewCellStyle19.BackColor = Color.FromArgb(27, 185, 190);
-            dataGridViewCellStyle19.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            colTotal.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(27, 185, 190);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            colTotal.DefaultCellStyle = dataGridViewCellStyle4;
             colTotal.HeaderText = "Total";
             colTotal.MinimumWidth = 6;
             colTotal.Name = "colTotal";
@@ -243,9 +244,9 @@
             // colFecha
             // 
             colFecha.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle20.BackColor = Color.FromArgb(27, 185, 190);
-            dataGridViewCellStyle20.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            colFecha.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(27, 185, 190);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            colFecha.DefaultCellStyle = dataGridViewCellStyle5;
             colFecha.HeaderText = "Fecha";
             colFecha.MinimumWidth = 6;
             colFecha.Name = "colFecha";
@@ -369,6 +370,7 @@
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Name = "Form2";
             Text = "Form2";
+            Load += Form2_Load;
             panelMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
             panelContenido.ResumeLayout(false);

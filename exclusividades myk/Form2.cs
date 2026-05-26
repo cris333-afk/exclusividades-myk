@@ -23,7 +23,14 @@ namespace exclusividades_myk
             EstiloBoton(btnSalir);
             this.DoubleBuffered = true;
         }
+        private void ActualizarContadorStock()
+        {
+            int totalStock =
+                Sistema.Productos.Sum(p => p.Stock);
 
+            lblCantidadP.Text =
+                totalStock.ToString();
+        }
         private void EstiloBoton(Button btn)
         {
 
@@ -79,6 +86,17 @@ namespace exclusividades_myk
                 g.FillEllipse(brush3, -50, 450, 250, 250);
             }
         }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            Form3Productos productos = new Form3Productos();
+            productos.Show();
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            ActualizarContadorStock();
+        }
     }
-    }
+}
 
