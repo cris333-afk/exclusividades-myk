@@ -10,9 +10,11 @@ namespace exclusividades_myk
 {
     public partial class Form3Productos : Form
     {
-        public Form3Productos()
+        Form2 menu;
+        public Form3Productos(Form2 frm)
         {
             InitializeComponent();
+            menu = frm;
         }
 
         private void ActualizarLista()
@@ -35,6 +37,7 @@ namespace exclusividades_myk
         int.Parse(txtStock.Text));
 
             Sistema.Productos.Add(nuevo);
+            menu.ActualizarContadorProductos();
 
             ActualizarLista();
 

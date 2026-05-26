@@ -21,16 +21,54 @@ namespace exclusividades_myk
             EstiloBoton(btnReportes);
             EstiloBoton(btnInventario);
             EstiloBoton(btnSalir);
-           
+
             this.DoubleBuffered = true;
         }
         private void ActualizarContadorStock()
         {
+            
             int totalStock =
                 Sistema.Productos.Sum(p => p.Stock);
 
             lblCantidadP.Text =
                 totalStock.ToString();
+        }
+        public void ActualizarContadorVentas()
+        {
+            lblCantidadV.Text =
+                Sistema.Ventas.Count.ToString();
+        }
+        public void ActualizarContadorProductos()
+        {
+            lblCantidadP.Text =
+                Sistema.Productos.Count.ToString();
+        }
+        public void ActualizarContadorClientes()
+        {
+            int totalClientes =
+                Sistema.Ventas
+                .Select(v => v.Cliente)
+                .Distinct()
+                .Count();
+
+            lblCantidadC.Text =
+                totalClientes.ToString();
+        }
+
+        public void MostrarVentas()
+        {
+            dgvVentas.Rows.Clear();
+
+            foreach (Venta v in Sistema.Ventas)
+            {
+                dgvVentas.Rows.Add(
+                    v.Id,
+                    v.Cliente,
+                    v.Producto,
+                    v.Total,
+                    v.Fecha
+                );
+            }
         }
         private void EstiloBoton(Button btn)
         {
@@ -90,16 +128,36 @@ namespace exclusividades_myk
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            Form3Productos productos = new Form3Productos();
+            Form3Productos productos = new Form3Productos(this);
             productos.Show();
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            ActualizarContadorStock();
+            MostrarVentas();
+
+            ActualizarContadorVentas();
+
+            ActualizarContadorProductos();
+
+            ActualizarContadorClientes();
         }
 
-       
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Form1 login = new Form1();
+            login.Show();
+
+            this.Close();
+        }
+
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+            Form4Venta ventas = new Form4Venta(this);
+
+            ventas.Show();
+
+        }
     }
 }
 
