@@ -37,8 +37,8 @@
             btnLogin = new Button();
             btnCerrar = new PictureBox();
             btnMinimizar = new PictureBox();
-            textUsuario = new TextBox();
-            textContrasena = new TextBox();
+            txtUsuario = new TextBox();
+            txtContraseña = new TextBox();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             panel1.SuspendLayout();
@@ -117,6 +117,7 @@
             btnLogin.TabIndex = 4;
             btnLogin.Text = "ACCEDER";
             btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
             // 
             // btnCerrar
             // 
@@ -140,26 +141,26 @@
             btnMinimizar.TabStop = false;
             btnMinimizar.Click += btnMinimizar_Click;
             // 
-            // textUsuario
+            // txtUsuario
             // 
-            textUsuario.BackColor = Color.White;
-            textUsuario.BorderStyle = BorderStyle.FixedSingle;
-            textUsuario.Font = new Font("Segoe UI", 12F);
-            textUsuario.Location = new Point(420, 190);
-            textUsuario.Name = "textUsuario";
-            textUsuario.Size = new Size(350, 34);
-            textUsuario.TabIndex = 7;
+            txtUsuario.BackColor = Color.White;
+            txtUsuario.BorderStyle = BorderStyle.FixedSingle;
+            txtUsuario.Font = new Font("Segoe UI", 12F);
+            txtUsuario.Location = new Point(420, 190);
+            txtUsuario.Name = "txtUsuario";
+            txtUsuario.Size = new Size(350, 34);
+            txtUsuario.TabIndex = 7;
             // 
-            // textContrasena
+            // txtContraseña
             // 
-            textContrasena.BackColor = Color.White;
-            textContrasena.BorderStyle = BorderStyle.FixedSingle;
-            textContrasena.Font = new Font("Segoe UI", 12F);
-            textContrasena.Location = new Point(420, 290);
-            textContrasena.Name = "textContrasena";
-            textContrasena.PasswordChar = '*';
-            textContrasena.Size = new Size(350, 34);
-            textContrasena.TabIndex = 8;
+            txtContraseña.BackColor = Color.White;
+            txtContraseña.BorderStyle = BorderStyle.FixedSingle;
+            txtContraseña.Font = new Font("Segoe UI", 12F);
+            txtContraseña.Location = new Point(420, 290);
+            txtContraseña.Name = "txtContraseña";
+            txtContraseña.PasswordChar = '*';
+            txtContraseña.Size = new Size(350, 34);
+            txtContraseña.TabIndex = 8;
             // 
             // pictureBox1
             // 
@@ -191,8 +192,8 @@
             ClientSize = new Size(1000, 550);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
-            Controls.Add(textContrasena);
-            Controls.Add(textUsuario);
+            Controls.Add(txtContraseña);
+            Controls.Add(txtUsuario);
             Controls.Add(btnMinimizar);
             Controls.Add(btnCerrar);
             Controls.Add(btnLogin);
@@ -227,8 +228,8 @@
         private PictureBox btnCerrar;
         private PictureBox btnMinimizar;
         private PictureBox picLogo;
-        private TextBox textUsuario;
-        private TextBox textContrasena;
+        private TextBox txtUsuario;
+        private TextBox txtContraseña;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
     }

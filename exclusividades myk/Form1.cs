@@ -65,5 +65,19 @@ namespace exclusividades_myk
         {
 
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
+            if (txtUsuario.Text == "admin" &&
+        txtContraseña.Text == "1234")
+            {
+                this.DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                MessageBox.Show("Usuario o contraseña incorrectos");
+            }
+        }
     }
 }
