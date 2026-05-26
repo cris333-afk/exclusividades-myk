@@ -24,9 +24,13 @@ namespace exclusividades_myk
 
             this.DoubleBuffered = true;
         }
+        public void ActualizarContadorClientes()
+        {
+            lblCantidadC.Text = Sistema.Clientes.Count.ToString();
+        }
         private void ActualizarContadorStock()
         {
-            
+
             int totalStock =
                 Sistema.Productos.Sum(p => p.Stock);
 
@@ -43,17 +47,7 @@ namespace exclusividades_myk
             lblCantidadP.Text =
                 Sistema.Productos.Count.ToString();
         }
-        public void ActualizarContadorClientes()
-        {
-            int totalClientes =
-                Sistema.Ventas
-                .Select(v => v.Cliente)
-                .Distinct()
-                .Count();
-
-            lblCantidadC.Text =
-                totalClientes.ToString();
-        }
+      
 
         public void MostrarVentas()
         {
@@ -158,6 +152,15 @@ namespace exclusividades_myk
             ventas.Show();
 
         }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            Form5Cliente clientes = new Form5Cliente(this);
+            clientes.Show();
+        }
+
+
     }
+
 }
 

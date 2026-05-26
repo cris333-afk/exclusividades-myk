@@ -96,7 +96,7 @@ namespace exclusividades_myk
 
                 menu.ActualizarContadorProductos();
 
-                menu.ActualizarContadorClientes();
+               
 
                 MessageBox.Show("Venta realizada correctamente");
 

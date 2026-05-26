@@ -53,6 +53,7 @@ namespace exclusividades_myk
             {
                 int fila = dgvProductos.SelectedRows[0].Index;
                 Sistema.Productos.RemoveAt(fila);
+                menu.ActualizarContadorProductos();
                 ActualizarLista();
             }
         }

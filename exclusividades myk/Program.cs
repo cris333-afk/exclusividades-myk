@@ -31,6 +31,11 @@ namespace exclusividades_myk
                 Application.Run(new Form2());
             }
 
+            Sistema.Clientes.Add(
+    new Cliente(402510409, "Lathrell", "88564588"));
+
+            Sistema.Clientes.Add(
+                new Cliente(111234864, "Cris", "77569877"));
 
         }
     }
