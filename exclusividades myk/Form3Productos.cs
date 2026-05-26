@@ -17,16 +17,8 @@ namespace exclusividades_myk
 
         private void ActualizarLista()
         {
-            lstProductos.Items.Clear();
-
-            foreach (Producto p in Sistema.Productos)
-            {
-                lstProductos.Items.Add(
-                    p.Id + " - " +
-                    p.Nombre + " - ₡" +
-                    p.Precio + " - Stock: " +
-                    p.Stock);
-            }
+            dgvProductos.DataSource = null;
+            dgvProductos.DataSource = Sistema.Productos;
         }
 
         private void Form3Productos_Load(object sender, EventArgs e)
@@ -36,7 +28,7 @@ namespace exclusividades_myk
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Producto nuevo = new Producto(
+         Producto nuevo = new Producto(
         int.Parse(txtId.Text),
         txtNombre.Text,
         double.Parse(txtPrecio.Text),
@@ -54,13 +46,14 @@ namespace exclusividades_myk
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (lstProductos.SelectedIndex >= 0)
+            if (dgvProductos.SelectedRows.Count > 0)
             {
-                Sistema.Productos.RemoveAt(
-                    lstProductos.SelectedIndex);
-
+                int fila = dgvProductos.SelectedRows[0].Index;
+                Sistema.Productos.RemoveAt(fila);
                 ActualizarLista();
             }
         }
+
+        
     }
 }

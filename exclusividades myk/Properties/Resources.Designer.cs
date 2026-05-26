@@ -63,6 +63,16 @@ namespace exclusividades_myk.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logo_blanco_transparente {
+            get {
+                object obj = ResourceManager.GetObject("logo_blanco_transparente", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logomk {
             get {
                 object obj = ResourceManager.GetObject("logomk", resourceCulture);

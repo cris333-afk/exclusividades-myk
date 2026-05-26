@@ -198,7 +198,7 @@
             dgvVentas.Columns.AddRange(new DataGridViewColumn[] { colID, colCliente, colProducto, colTotal, colFecha });
             dgvVentas.EnableHeadersVisualStyles = false;
             dgvVentas.GridColor = Color.LightGray;
-            dgvVentas.Location = new Point(35, 260);
+            dgvVentas.Location = new Point(35, 277);
             dgvVentas.Name = "dgvVentas";
             dgvVentas.RowHeadersVisible = false;
             dgvVentas.RowHeadersWidth = 51;
@@ -367,7 +367,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(panelContenido);
             Controls.Add(panelMenu);
-            FormBorderStyle = FormBorderStyle.Fixed3D;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Form2";
             Text = "Form2";
             Load += Form2_Load;
@@ -412,5 +412,6 @@
         private DataGridViewTextBoxColumn colProducto;
         private DataGridViewTextBoxColumn colTotal;
         private DataGridViewTextBoxColumn colFecha;
+        private Button button2;
     }
 }

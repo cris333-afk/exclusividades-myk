@@ -21,6 +21,7 @@ namespace exclusividades_myk
             EstiloBoton(btnReportes);
             EstiloBoton(btnInventario);
             EstiloBoton(btnSalir);
+           
             this.DoubleBuffered = true;
         }
         private void ActualizarContadorStock()
@@ -97,6 +98,8 @@ namespace exclusividades_myk
         {
             ActualizarContadorStock();
         }
+
+       
     }
 }
 
