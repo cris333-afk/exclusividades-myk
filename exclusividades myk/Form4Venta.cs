@@ -5,179 +5,285 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace exclusividades_myk
 {
     public partial class Form4Venta : Form
     {
-        Form2 menu;
-        public Form4Venta(Form2 frm)
+
+        private List<DetalleVenta> carrito =
+    new List<DetalleVenta>();
+
+        private Form2 menu;
+        public Form4Venta(Form2 menuPrincipal)
         {
             InitializeComponent();
-            menu = frm;
+            menu = menuPrincipal;
+        }
+
+        private void Form4Venta_Load(object sender, EventArgs e)
+        {
+            txtIdVenta.Text =
+        (Sistema.Ventas.Count + 1).ToString();
+
+            CargarClientes();
             CargarProductos();
-
-            lblFecha.Text = DateTime.Now.ToShortDateString();
-        }
-        private void CargarProductos()
-        {
-            cmbProductos.Items.Clear();
-
-            foreach (Producto p in Sistema.Productos)
-            {
-                cmbProductos.Items.Add(p.Nombre);
-            }
-        }
-
-        private void btnVender_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // VALIDAR CAMPOS VACIOS
-                if (txtId.Text == "" ||
-                    txtCliente.Text == "" ||
-                    cmbProductos.Text == "")
-                {
-                    MessageBox.Show("Complete todos los campos");
-                    return;
-                }
-
-                // VALIDAR ID NUMERICO
-                int idVenta;
-
-                if (!int.TryParse(txtId.Text, out idVenta))
-                {
-                    MessageBox.Show("El ID debe ser numérico");
-                    return;
-                }
-
-                // BUSCAR PRODUCTO
-                Producto productoSeleccionado = null;
-
-                foreach (Producto p in Sistema.Productos)
-                {
-                    if (p.Nombre == cmbProductos.Text)
-                    {
-                        productoSeleccionado = p;
-                        break;
-                    }
-                }
-
-                // VALIDAR STOCK
-                if (productoSeleccionado.Stock <= 0)
-                {
-                    MessageBox.Show("No hay stock disponible");
-                    return;
-                }
-
-                // RESTAR STOCK
-                productoSeleccionado.Stock--;
-
-                // OBTENER TOTAL
-                double total = productoSeleccionado.Precio;
-
-                // MOSTRAR TOTAL
-                lblTotal.Text = "₡" + total.ToString();
-
-                // CREAR VENTA
-                Venta nuevaVenta = new Venta(
-                    idVenta,
-                    txtCliente.Text,
-                    productoSeleccionado.Nombre,
-                    total,
-                    DateTime.Now
-                );
-
-                // GUARDAR EN LISTA
-                Sistema.Ventas.Add(nuevaVenta);
-                menu.MostrarVentas();
-                menu.ActualizarContadorVentas();
-
-                menu.ActualizarContadorProductos();
-
-               
-
-                MessageBox.Show("Venta realizada correctamente");
-
-                // LIMPIAR CONTROLES
-                LimpiarControles();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-        }
-        private void LimpiarControles()
-        {
-            txtId.Clear();
-
-            txtCliente.Clear();
-
-            cmbProductos.SelectedIndex = -1;
+            ConfigurarDGV();
 
             lblTotal.Text = "₡0";
         }
 
+        private void ConfigurarDGV()
+        {
+            dgvVenta.Columns.Clear();
+
+            dgvVenta.Columns.Add(
+                "Producto",
+                "Producto");
+
+            dgvVenta.Columns.Add(
+                "Cantidad",
+                "Cantidad");
+
+            dgvVenta.Columns.Add(
+                "Precio",
+                "Precio");
+
+            dgvVenta.Columns.Add(
+                "Subtotal",
+                "Subtotal");
+        }
+        private void CargarClientes()
+        {
+            cmbCliente.Items.Clear();
+
+            cmbCliente.Items.Add("Sin cliente");
+
+            foreach (Cliente c in Sistema.Clientes)
+            {
+                cmbCliente.Items.Add(
+                    c.Id + " - " + c.Nombre);
+            }
+
+            cmbCliente.SelectedIndex = 0;
+        }
+
+        private void CargarProductos()
+        {
+            cmbProducto.Items.Clear();
+
+            foreach (Producto p in Sistema.Productos)
+            {
+                cmbProducto.Items.Add(
+                    p.Id + " - " +
+                    p.Nombre +
+                    " | Stock: " +
+                    p.Stock);
+            }
+
+            if (cmbProducto.Items.Count > 0)
+            {
+                cmbProducto.SelectedIndex = 0;
+            }
+        }
+        private void ActualizarTotal()
+        {
+            double total = 0;
+
+            foreach (DetalleVenta d in carrito)
+            {
+                total += d.Subtotal;
+            }
+
+            lblTotal.Text =
+                "₡" + total.ToString("N2");
+        }
+
+        private void LimpiarVenta()
+        {
+            carrito.Clear();
+
+            dgvVenta.Rows.Clear();
+
+            lblTotal.Text = "₡0";
+
+            nudCantidad.Value = 1;
+
+            txtIdVenta.Text =
+                (Sistema.Ventas.Count + 1)
+                .ToString();
+
+            CargarProductos();
+
+            cmbCliente.SelectedIndex = 0;
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (cmbProducto.SelectedIndex == -1)
+            {
+                MessageBox.Show(
+                    "Seleccione un producto");
+                return;
+            }
+
+            string texto =
+                cmbProducto.SelectedItem
+                .ToString();
+
+            int id =
+                Convert.ToInt32(
+                    texto.Split('-')[0]
+                    .Trim());
+
+            Producto p =
+                Sistema.Productos
+                .FirstOrDefault(
+                    x => x.Id == id);
+
+            if (p == null)
+            {
+                return;
+            }
+
+            int cantidad =
+                Convert.ToInt32(
+                    nudCantidad.Value);
+
+            if (cantidad > p.Stock)
+            {
+                MessageBox.Show(
+                    "Stock insuficiente");
+                return;
+            }
+
+            DetalleVenta existente =
+                carrito.FirstOrDefault(
+                    d => d.Producto.Id == p.Id);
+
+            if (existente != null)
+            {
+                if (existente.Cantidad +
+                    cantidad > p.Stock)
+                {
+                    MessageBox.Show(
+                        "Stock insuficiente");
+                    return;
+                }
+
+                existente.Cantidad +=
+                    cantidad;
+            }
+            else
+            {
+                carrito.Add(
+                    new DetalleVenta(
+                        p,
+                        cantidad));
+            }
+
+            dgvVenta.Rows.Clear();
+
+            foreach (DetalleVenta d in carrito)
+            {
+                dgvVenta.Rows.Add(
+                    d.Producto.Nombre,
+                    d.Cantidad,
+                    d.Producto.Precio,
+                    d.Subtotal);
+            }
+
+            ActualizarTotal();
+        }
+
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            try
+            if (dgvVenta.SelectedRows.Count == 0)
             {
-                // VALIDAR ID
-                int idVenta;
-
-                if (!int.TryParse(txtId.Text, out idVenta))
-                {
-                    MessageBox.Show("Ingrese un ID válido");
-                    return;
-                }
-
-                // BUSCAR VENTA
-                Venta ventaEliminar = null;
-
-                foreach (Venta v in Sistema.Ventas)
-                {
-                    if (v.Id == idVenta)
-                    {
-                        ventaEliminar = v;
-                        break;
-                    }
-                }
-
-                // VALIDAR SI EXISTE
-                if (ventaEliminar == null)
-                {
-                    MessageBox.Show("No se encontró la venta");
-                    return;
-                }
-
-                // DEVOLVER STOCK
-                foreach (Producto p in Sistema.Productos)
-                {
-                    if (p.Nombre == ventaEliminar.Producto)
-                    {
-                        p.Stock++;
-                        break;
-                    }
-                }
-
-                // ELIMINAR VENTA
-                Sistema.Ventas.Remove(ventaEliminar);
-
-                // ACTUALIZAR DATAGRIDVIEW
-                menu.MostrarVentas();
-
-                MessageBox.Show("Venta eliminada correctamente");
-
-                // LIMPIAR CONTROLES
-                LimpiarControles();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                return;
             }
 
+            int fila =
+                dgvVenta.SelectedRows[0].Index;
+
+            carrito.RemoveAt(fila);
+
+            dgvVenta.Rows.RemoveAt(fila);
+
+            ActualizarTotal();
+        }
+
+        private void btnVender_Click(object sender, EventArgs e)
+        {
+            if (carrito.Count == 0)
+            {
+                MessageBox.Show(
+                    "No hay productos en la venta");
+                return;
+            }
+
+            Cliente clienteVenta = null;
+
+            if (cmbCliente.SelectedIndex > 0)
+            {
+                string textoCliente =
+                    cmbCliente.SelectedItem
+                    .ToString();
+
+                int idCliente =
+                    Convert.ToInt32(
+                        textoCliente
+                        .Split('-')[0]
+                        .Trim());
+
+                clienteVenta =
+                    Sistema.Clientes
+                    .FirstOrDefault(
+                        c => c.Id == idCliente);
+            }
+
+            foreach (DetalleVenta d in carrito)
+            {
+                if (d.Cantidad >
+                    d.Producto.Stock)
+                {
+                    MessageBox.Show(
+                        "Stock insuficiente para " +
+                        d.Producto.Nombre);
+                    return;
+                }
+            }
+
+            foreach (DetalleVenta d in carrito)
+            {
+                d.Producto.Stock -=
+                    d.Cantidad;
+            }
+
+            double total =
+                carrito.Sum(
+                    d => d.Subtotal);
+
+            Venta nuevaVenta =
+                new Venta(
+                    Sistema.Ventas.Count + 1,
+                    clienteVenta,
+                    new List<DetalleVenta>(
+                        carrito),
+                    total,
+                    DateTime.Now);
+
+            Sistema.Ventas.Add(
+    nuevaVenta);
+
+            menu.ActualizarContadorVentas();
+            menu.MostrarVentasRecientes();
+            CargarProductos();
+
+            MessageBox.Show(
+                "Venta realizada");
+
+            LimpiarVenta();
         }
     }
 }

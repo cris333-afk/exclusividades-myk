@@ -4,22 +4,32 @@ using System.Text;
 
 namespace exclusividades_myk
 {
+
     public class Venta
     {
         public int Id { get; set; }
-        public string Cliente { get; set; }
-        public string Producto { get; set; }
+
+        public Cliente Cliente { get; set; }
+
+        public List<DetalleVenta> Detalles { get; set; }
+
         public double Total { get; set; }
+
         public DateTime Fecha { get; set; }
 
-        public Venta(int id, string cliente, string producto,
-                     double total, DateTime fecha)
+        public Venta(
+            int id,
+            Cliente cliente,
+            List<DetalleVenta> detalles,
+            double total,
+            DateTime fecha)
         {
             Id = id;
             Cliente = cliente;
-            Producto = producto;
+            Detalles = detalles;
             Total = total;
             Fecha = fecha;
         }
     }
 }
+

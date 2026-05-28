@@ -40,25 +40,47 @@ namespace exclusividades_myk
         public void ActualizarContadorVentas()
         {
             lblCantidadV.Text =
-                Sistema.Ventas.Count.ToString();
+        Sistema.Ventas.Count
+        .ToString();
         }
         public void ActualizarContadorProductos()
         {
             lblCantidadP.Text =
                 Sistema.Productos.Count.ToString();
         }
-      
+
 
         public void MostrarVentas()
         {
-            dgvVentas.Rows.Clear();
+            dgvVentasRecientes.Rows.Clear();
 
             foreach (Venta v in Sistema.Ventas)
             {
-                dgvVentas.Rows.Add(
+                string productos = "";
+
+                foreach (DetalleVenta d in v.Detalles)
+                {
+                    productos +=
+                        d.Producto.Nombre +
+                        " x" +
+                        d.Cantidad +
+                        ", ";
+                }
+
+                if (productos.Length > 0)
+                {
+                    productos =
+                        productos.Substring(
+                            0,
+                            productos.Length - 2);
+                }
+
+                dgvVentasRecientes.Rows.Add(
                     v.Id,
-                    v.Cliente,
-                    v.Producto,
+                    v.Cliente != null
+                        ? v.Cliente.Nombre
+                        : "Sin cliente",
+                    productos,
                     v.Total,
                     v.Fecha
                 );
@@ -135,6 +157,30 @@ namespace exclusividades_myk
             ActualizarContadorProductos();
 
             ActualizarContadorClientes();
+
+            dgvVentasRecientes.Columns.Clear();
+
+            dgvVentasRecientes.Columns.Add(
+                "Id",
+                "ID");
+
+            dgvVentasRecientes.Columns.Add(
+                "Cliente",
+                "Cliente");
+
+            dgvVentasRecientes.Columns.Add(
+                "Productos",
+                "Productos");
+
+            dgvVentasRecientes.Columns.Add(
+                "Total",
+                "Total");
+
+            dgvVentasRecientes.Columns.Add(
+                "Fecha",
+                "Fecha");
+
+            MostrarVentasRecientes();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -159,7 +205,48 @@ namespace exclusividades_myk
             clientes.Show();
         }
 
+        public void MostrarVentasRecientes()
+        {
+            dgvVentasRecientes .Rows.Clear();
 
+            var recientes =
+                Sistema.Ventas
+                .OrderByDescending(
+                    v => v.Fecha)
+                .Take(10);
+
+            foreach (Venta v in recientes)
+            {
+                string productos = "";
+
+                foreach (DetalleVenta d in v.Detalles)
+                {
+                    productos +=
+                        d.Producto.Nombre +
+                        " x" +
+                        d.Cantidad +
+                        ", ";
+                }
+
+                if (productos.Length > 0)
+                {
+                    productos =
+                        productos.Substring(
+                            0,
+                            productos.Length - 2);
+                }
+
+                dgvVentasRecientes.Rows.Add(
+                    v.Id,
+                    v.Cliente != null
+                        ? v.Cliente.Nombre
+                        : "Sin cliente",
+                    productos,
+                    "₡" + v.Total.ToString("N2"),
+                    v.Fecha.ToShortDateString()
+                );
+            }
+        }
     }
 
 }

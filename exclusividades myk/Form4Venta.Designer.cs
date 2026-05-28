@@ -28,136 +28,92 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panelMenu = new Panel();
-            pictureLogo = new PictureBox();
-            panelTop = new Panel();
-            labelTitulo = new Label();
-            label2 = new Label();
-            lblF = new Label();
-            lblT = new Label();
-            lblCliente = new Label();
-            lblIdVneta = new Label();
+            cmbCliente = new ComboBox();
+            cmbProducto = new ComboBox();
+            nudCantidad = new NumericUpDown();
+            btnAgregar = new Button();
             btnEliminar = new Button();
             btnVender = new Button();
-            txtCliente = new TextBox();
-            txtId = new TextBox();
-            lblProducto = new Label();
-            cmbProductos = new ComboBox();
+            dgvVenta = new DataGridView();
+            label1 = new Label();
+            label2 = new Label();
+            label4 = new Label();
+            txtIdVenta = new TextBox();
+            label3 = new Label();
+            lblTotalTitulo = new Label();
             lblTotal = new Label();
-            lblFecha = new Label();
-            btbLimpiar = new Button();
-            panelMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureLogo).BeginInit();
+            panelventa = new Panel();
+            panel1 = new Panel();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)nudCantidad).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvVenta).BeginInit();
+            panelventa.SuspendLayout();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // panelMenu
+            // cmbCliente
             // 
-            panelMenu.BackColor = Color.FromArgb(27, 185, 190);
-            panelMenu.Controls.Add(pictureLogo);
-            panelMenu.Dock = DockStyle.Left;
-            panelMenu.Location = new Point(0, 0);
-            panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(300, 900);
-            panelMenu.TabIndex = 8;
+            cmbCliente.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbCliente.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cmbCliente.BackColor = Color.White;
+            cmbCliente.Font = new Font("Segoe UI", 11F);
+            cmbCliente.FormattingEnabled = true;
+            cmbCliente.Location = new Point(30, 160);
+            cmbCliente.Name = "cmbCliente";
+            cmbCliente.Size = new Size(280, 33);
+            cmbCliente.TabIndex = 0;
             // 
-            // pictureLogo
+            // cmbProducto
             // 
-            pictureLogo.BackColor = Color.Transparent;
-            pictureLogo.Image = Properties.Resources.logo_blanco_transparente;
-            pictureLogo.Location = new Point(55, 300);
-            pictureLogo.Name = "pictureLogo";
-            pictureLogo.Size = new Size(200, 200);
-            pictureLogo.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureLogo.TabIndex = 0;
-            pictureLogo.TabStop = false;
+            cmbProducto.BackColor = Color.White;
+            cmbProducto.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbProducto.Font = new Font("Segoe UI", 11F);
+            cmbProducto.FormattingEnabled = true;
+            cmbProducto.Location = new Point(30, 270);
+            cmbProducto.Name = "cmbProducto";
+            cmbProducto.Size = new Size(280, 33);
+            cmbProducto.TabIndex = 1;
             // 
-            // panelTop
+            // nudCantidad
             // 
-            panelTop.BackColor = Color.FromArgb(27, 185, 190);
-            panelTop.Dock = DockStyle.Top;
-            panelTop.Location = new Point(300, 0);
-            panelTop.Name = "panelTop";
-            panelTop.Size = new Size(1100, 50);
-            panelTop.TabIndex = 9;
+            nudCantidad.BackColor = Color.White;
+            nudCantidad.Font = new Font("Segoe UI", 11F);
+            nudCantidad.Location = new Point(30, 370);
+            nudCantidad.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            nudCantidad.Name = "nudCantidad";
+            nudCantidad.Size = new Size(120, 32);
+            nudCantidad.TabIndex = 2;
+            nudCantidad.TextAlign = HorizontalAlignment.Center;
+            nudCantidad.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
-            // labelTitulo
+            // btnAgregar
             // 
-            labelTitulo.AutoSize = true;
-            labelTitulo.Font = new Font("Segoe UI", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelTitulo.ForeColor = Color.DimGray;
-            labelTitulo.Location = new Point(338, 84);
-            labelTitulo.Name = "labelTitulo";
-            labelTitulo.Size = new Size(464, 62);
-            labelTitulo.TabIndex = 10;
-            labelTitulo.Text = "GESTION DE VENTAS";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F);
-            label2.ForeColor = Color.Gray;
-            label2.Location = new Point(350, 146);
-            label2.Name = "label2";
-            label2.Size = new Size(309, 28);
-            label2.TabIndex = 11;
-            label2.Text = "Agrega, consulta o elimina ventas ";
-            // 
-            // lblF
-            // 
-            lblF.AutoSize = true;
-            lblF.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblF.ForeColor = Color.DimGray;
-            lblF.Location = new Point(506, 343);
-            lblF.Name = "lblF";
-            lblF.Size = new Size(69, 28);
-            lblF.TabIndex = 24;
-            lblF.Text = "Fecha:";
-            // 
-            // lblT
-            // 
-            lblT.AutoSize = true;
-            lblT.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblT.ForeColor = Color.DimGray;
-            lblT.Location = new Point(315, 343);
-            lblT.Name = "lblT";
-            lblT.Size = new Size(60, 28);
-            lblT.TabIndex = 23;
-            lblT.Text = "Total:";
-            // 
-            // lblCliente
-            // 
-            lblCliente.AutoSize = true;
-            lblCliente.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCliente.ForeColor = Color.DimGray;
-            lblCliente.Location = new Point(683, 202);
-            lblCliente.Name = "lblCliente";
-            lblCliente.Size = new Size(75, 28);
-            lblCliente.TabIndex = 22;
-            lblCliente.Text = "Cliente";
-            // 
-            // lblIdVneta
-            // 
-            lblIdVneta.AutoSize = true;
-            lblIdVneta.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblIdVneta.ForeColor = Color.DimGray;
-            lblIdVneta.Location = new Point(315, 202);
-            lblIdVneta.Name = "lblIdVneta";
-            lblIdVneta.Size = new Size(32, 28);
-            lblIdVneta.TabIndex = 21;
-            lblIdVneta.Text = "ID";
+            btnAgregar.BackColor = Color.White;
+            btnAgregar.Cursor = Cursors.Hand;
+            btnAgregar.FlatStyle = FlatStyle.Flat;
+            btnAgregar.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAgregar.ForeColor = Color.Black;
+            btnAgregar.Location = new Point(30, 450);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(280, 55);
+            btnAgregar.TabIndex = 3;
+            btnAgregar.Text = "Agregar Carrito";
+            btnAgregar.UseVisualStyleBackColor = false;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // btnEliminar
             // 
-            btnEliminar.BackColor = Color.FromArgb(255, 99, 99);
+            btnEliminar.BackColor = Color.FromArgb(220, 53, 69);
             btnEliminar.Cursor = Cursors.Hand;
             btnEliminar.FlatStyle = FlatStyle.Flat;
-            btnEliminar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEliminar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEliminar.ForeColor = Color.White;
-            btnEliminar.Location = new Point(1154, 429);
+            btnEliminar.Location = new Point(667, 531);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(180, 50);
-            btnEliminar.TabIndex = 20;
-            btnEliminar.Text = "Eliminar";
+            btnEliminar.Size = new Size(280, 55);
+            btnEliminar.TabIndex = 4;
+            btnEliminar.Text = "Eliminar Item";
             btnEliminar.UseVisualStyleBackColor = false;
             btnEliminar.Click += btnEliminar_Click;
             // 
@@ -166,141 +122,190 @@
             btnVender.BackColor = Color.FromArgb(27, 185, 190);
             btnVender.Cursor = Cursors.Hand;
             btnVender.FlatStyle = FlatStyle.Flat;
-            btnVender.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnVender.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnVender.ForeColor = Color.White;
-            btnVender.Location = new Point(899, 429);
+            btnVender.Location = new Point(700, 760);
             btnVender.Name = "btnVender";
-            btnVender.Size = new Size(180, 50);
-            btnVender.TabIndex = 19;
+            btnVender.Size = new Size(240, 70);
+            btnVender.TabIndex = 5;
             btnVender.Text = "Vender";
             btnVender.UseVisualStyleBackColor = false;
             btnVender.Click += btnVender_Click;
             // 
-            // txtCliente
+            // dgvVenta
             // 
-            txtCliente.BackColor = Color.White;
-            txtCliente.BorderStyle = BorderStyle.FixedSingle;
-            txtCliente.Font = new Font("Segoe UI", 12F);
-            txtCliente.ForeColor = Color.Black;
-            txtCliente.Location = new Point(683, 237);
-            txtCliente.Name = "txtCliente";
-            txtCliente.Size = new Size(250, 34);
-            txtCliente.TabIndex = 16;
+            dgvVenta.AllowUserToAddRows = false;
+            dgvVenta.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvVenta.BackgroundColor = Color.White;
+            dgvVenta.BorderStyle = BorderStyle.None;
+            dgvVenta.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvVenta.EnableHeadersVisualStyles = false;
+            dgvVenta.Location = new Point(378, 0);
+            dgvVenta.MultiSelect = false;
+            dgvVenta.Name = "dgvVenta";
+            dgvVenta.ReadOnly = true;
+            dgvVenta.RowHeadersWidth = 51;
+            dgvVenta.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvVenta.Size = new Size(569, 505);
+            dgvVenta.TabIndex = 6;
             // 
-            // txtId
+            // label1
             // 
-            txtId.BackColor = Color.White;
-            txtId.BorderStyle = BorderStyle.FixedSingle;
-            txtId.Font = new Font("Segoe UI", 12F);
-            txtId.ForeColor = Color.Black;
-            txtId.Location = new Point(315, 237);
-            txtId.Name = "txtId";
-            txtId.Size = new Size(250, 34);
-            txtId.TabIndex = 15;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(30, 30);
+            label1.Name = "label1";
+            label1.Size = new Size(85, 25);
+            label1.TabIndex = 7;
+            label1.Text = "ID Venta";
             // 
-            // lblProducto
+            // label2
             // 
-            lblProducto.AutoSize = true;
-            lblProducto.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblProducto.ForeColor = Color.DimGray;
-            lblProducto.Location = new Point(1039, 202);
-            lblProducto.Name = "lblProducto";
-            lblProducto.Size = new Size(95, 28);
-            lblProducto.TabIndex = 26;
-            lblProducto.Text = "Producto";
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(30, 130);
+            label2.Name = "label2";
+            label2.Size = new Size(71, 25);
+            label2.TabIndex = 8;
+            label2.Text = "Cliente";
             // 
-            // cmbProductos
+            // label4
             // 
-            cmbProductos.FormattingEnabled = true;
-            cmbProductos.Location = new Point(1039, 237);
-            cmbProductos.Name = "cmbProductos";
-            cmbProductos.Size = new Size(211, 28);
-            cmbProductos.TabIndex = 27;
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(30, 340);
+            label4.Name = "label4";
+            label4.Size = new Size(88, 25);
+            label4.TabIndex = 9;
+            label4.Text = "Cantidad";
+            // 
+            // txtIdVenta
+            // 
+            txtIdVenta.BackColor = Color.Gainsboro;
+            txtIdVenta.BorderStyle = BorderStyle.FixedSingle;
+            txtIdVenta.Enabled = false;
+            txtIdVenta.Font = new Font("Segoe UI", 11F);
+            txtIdVenta.Location = new Point(30, 60);
+            txtIdVenta.Name = "txtIdVenta";
+            txtIdVenta.ReadOnly = true;
+            txtIdVenta.Size = new Size(280, 32);
+            txtIdVenta.TabIndex = 10;
+            txtIdVenta.TextAlign = HorizontalAlignment.Center;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(30, 240);
+            label3.Name = "label3";
+            label3.Size = new Size(90, 25);
+            label3.TabIndex = 11;
+            label3.Text = "Producto";
+            // 
+            // lblTotalTitulo
+            // 
+            lblTotalTitulo.AutoSize = true;
+            lblTotalTitulo.Font = new Font("Segoe UI", 13.2000008F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotalTitulo.Location = new Point(650, 630);
+            lblTotalTitulo.Name = "lblTotalTitulo";
+            lblTotalTitulo.Size = new Size(67, 31);
+            lblTotalTitulo.TabIndex = 12;
+            lblTotalTitulo.Text = "Total";
             // 
             // lblTotal
             // 
             lblTotal.AutoSize = true;
-            lblTotal.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTotal.ForeColor = Color.DimGray;
-            lblTotal.Location = new Point(381, 343);
+            lblTotal.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotal.Location = new Point(650, 661);
             lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(46, 28);
-            lblTotal.TabIndex = 28;
-            lblTotal.Text = " ₡ 0";
+            lblTotal.Size = new Size(52, 41);
+            lblTotal.TabIndex = 13;
+            lblTotal.Text = "$0";
             // 
-            // lblFecha
+            // panelventa
             // 
-            lblFecha.AutoSize = true;
-            lblFecha.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblFecha.ForeColor = Color.DimGray;
-            lblFecha.Location = new Point(581, 343);
-            lblFecha.Name = "lblFecha";
-            lblFecha.Size = new Size(0, 28);
-            lblFecha.TabIndex = 29;
+            panelventa.BackColor = Color.FromArgb(27, 185, 190);
+            panelventa.Controls.Add(label1);
+            panelventa.Controls.Add(txtIdVenta);
+            panelventa.Controls.Add(label2);
+            panelventa.Controls.Add(label4);
+            panelventa.Controls.Add(label3);
+            panelventa.Controls.Add(cmbCliente);
+            panelventa.Controls.Add(btnAgregar);
+            panelventa.Controls.Add(cmbProducto);
+            panelventa.Controls.Add(nudCantidad);
+            panelventa.Location = new Point(-4, 0);
+            panelventa.Name = "panelventa";
+            panelventa.Size = new Size(376, 919);
+            panelventa.TabIndex = 14;
             // 
-            // btbLimpiar
+            // panel1
             // 
-            btbLimpiar.BackColor = Color.Gray;
-            btbLimpiar.Cursor = Cursors.Hand;
-            btbLimpiar.FlatStyle = FlatStyle.Flat;
-            btbLimpiar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btbLimpiar.ForeColor = Color.White;
-            btbLimpiar.Location = new Point(319, 445);
-            btbLimpiar.Name = "btbLimpiar";
-            btbLimpiar.Size = new Size(108, 34);
-            btbLimpiar.TabIndex = 30;
-            btbLimpiar.Text = "Limpiar";
-            btbLimpiar.UseVisualStyleBackColor = false;
+            panel1.BackColor = Color.FromArgb(27, 185, 190);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Dock = DockStyle.Right;
+            panel1.Location = new Point(1105, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(295, 900);
+            panel1.TabIndex = 15;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Dock = DockStyle.Right;
+            pictureBox1.Image = Properties.Resources.logo_blanco_transparente;
+            pictureBox1.Location = new Point(41, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(254, 900);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // Form4Venta
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(1400, 900);
-            Controls.Add(btbLimpiar);
-            Controls.Add(lblFecha);
+            Controls.Add(panel1);
+            Controls.Add(panelventa);
             Controls.Add(lblTotal);
-            Controls.Add(cmbProductos);
-            Controls.Add(lblProducto);
-            Controls.Add(lblF);
-            Controls.Add(lblT);
-            Controls.Add(lblCliente);
-            Controls.Add(lblIdVneta);
-            Controls.Add(btnEliminar);
+            Controls.Add(lblTotalTitulo);
+            Controls.Add(dgvVenta);
             Controls.Add(btnVender);
-            Controls.Add(txtCliente);
-            Controls.Add(txtId);
-            Controls.Add(label2);
-            Controls.Add(labelTitulo);
-            Controls.Add(panelTop);
-            Controls.Add(panelMenu);
+            Controls.Add(btnEliminar);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Form4Venta";
             Text = "Form4Venta";
-            panelMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureLogo).EndInit();
+            Load += Form4Venta_Load;
+            ((System.ComponentModel.ISupportInitialize)nudCantidad).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvVenta).EndInit();
+            panelventa.ResumeLayout(false);
+            panelventa.PerformLayout();
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Panel panelMenu;
-        private PictureBox pictureLogo;
-        private Panel panelTop;
-        private Label labelTitulo;
-        private Label label2;
-        private Label lblF;
-        private Label lblT;
-        private Label lblCliente;
-        private Label lblIdVneta;
+        private ComboBox cmbCliente;
+        private ComboBox cmbProducto;
+        private NumericUpDown nudCantidad;
+        private Button btnAgregar;
         private Button btnEliminar;
         private Button btnVender;
-        private TextBox txtCliente;
-        private TextBox txtId;
-        private Label lblProducto;
-        private ComboBox cmbProductos;
+        private DataGridView dgvVenta;
+        private Label label1;
+        private Label label2;
+        private Label label4;
+        private TextBox txtIdVenta;
+        private Label label3;
+        private Label lblTotalTitulo;
         private Label lblTotal;
-        private Label lblFecha;
-        private Button btbLimpiar;
+        private Panel panelventa;
+        private Panel panel1;
+        private PictureBox pictureBox1;
     }
 }

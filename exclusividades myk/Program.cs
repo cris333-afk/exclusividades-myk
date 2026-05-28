@@ -21,7 +21,7 @@ namespace exclusividades_myk
                 new Producto(2, "Jeans", 14000, 5));
 
             Sistema.Productos.Add(
-                new Producto(3, "Camiseta", 75000, 3));
+                new Producto(3, "Camiseta", 7500, 3));
 
             Sistema.Usuarios.Add(
                new Usuario("admin", "1234", "Administrador"));

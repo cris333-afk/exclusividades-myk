@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
             panelMenu = new Panel();
             picLogo = new PictureBox();
             btnInventario = new Button();
@@ -43,7 +43,7 @@
             btnVentas = new Button();
             btnProductos = new Button();
             panelContenido = new Panel();
-            dgvVentas = new DataGridView();
+            dgvVentasRecientes = new DataGridView();
             colID = new DataGridViewTextBoxColumn();
             colCliente = new DataGridViewTextBoxColumn();
             colProducto = new DataGridViewTextBoxColumn();
@@ -62,7 +62,7 @@
             panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             panelContenido.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvVentas).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvVentasRecientes).BeginInit();
             panelClientes.SuspendLayout();
             panelVentas.SuspendLayout();
             panelProductos.SuspendLayout();
@@ -179,7 +179,7 @@
             // 
             panelContenido.BackColor = Color.White;
             panelContenido.BorderStyle = BorderStyle.FixedSingle;
-            panelContenido.Controls.Add(dgvVentas);
+            panelContenido.Controls.Add(dgvVentasRecientes);
             panelContenido.Controls.Add(lblVrecientes);
             panelContenido.Controls.Add(panelClientes);
             panelContenido.Controls.Add(panelVentas);
@@ -191,55 +191,55 @@
             panelContenido.Size = new Size(570, 450);
             panelContenido.TabIndex = 1;
             // 
-            // dgvVentas
+            // dgvVentasRecientes
             // 
-            dgvVentas.AllowUserToAddRows = false;
-            dgvVentas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvVentas.BackgroundColor = Color.White;
-            dgvVentas.BorderStyle = BorderStyle.None;
-            dgvVentas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvVentas.Columns.AddRange(new DataGridViewColumn[] { colID, colCliente, colProducto, colTotal, colFecha });
-            dgvVentas.EnableHeadersVisualStyles = false;
-            dgvVentas.GridColor = Color.LightGray;
-            dgvVentas.Location = new Point(35, 277);
-            dgvVentas.Name = "dgvVentas";
-            dgvVentas.RowHeadersVisible = false;
-            dgvVentas.RowHeadersWidth = 51;
-            dgvVentas.Size = new Size(515, 160);
-            dgvVentas.TabIndex = 5;
+            dgvVentasRecientes.AllowUserToAddRows = false;
+            dgvVentasRecientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvVentasRecientes.BackgroundColor = Color.White;
+            dgvVentasRecientes.BorderStyle = BorderStyle.None;
+            dgvVentasRecientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvVentasRecientes.Columns.AddRange(new DataGridViewColumn[] { colID, colCliente, colProducto, colTotal, colFecha });
+            dgvVentasRecientes.EnableHeadersVisualStyles = false;
+            dgvVentasRecientes.GridColor = Color.LightGray;
+            dgvVentasRecientes.Location = new Point(35, 277);
+            dgvVentasRecientes.Name = "dgvVentasRecientes";
+            dgvVentasRecientes.RowHeadersVisible = false;
+            dgvVentasRecientes.RowHeadersWidth = 51;
+            dgvVentasRecientes.Size = new Size(515, 160);
+            dgvVentasRecientes.TabIndex = 5;
             // 
             // colID
             // 
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(27, 185, 190);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            colID.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(27, 185, 190);
+            dataGridViewCellStyle6.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            colID.DefaultCellStyle = dataGridViewCellStyle6;
             colID.HeaderText = "ID";
             colID.MinimumWidth = 6;
             colID.Name = "colID";
             // 
             // colCliente
             // 
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(27, 185, 190);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            colCliente.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(27, 185, 190);
+            dataGridViewCellStyle7.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            colCliente.DefaultCellStyle = dataGridViewCellStyle7;
             colCliente.HeaderText = "Cliente";
             colCliente.MinimumWidth = 6;
             colCliente.Name = "colCliente";
             // 
             // colProducto
             // 
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(27, 185, 190);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            colProducto.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.BackColor = Color.FromArgb(27, 185, 190);
+            dataGridViewCellStyle8.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            colProducto.DefaultCellStyle = dataGridViewCellStyle8;
             colProducto.HeaderText = "Producto";
             colProducto.MinimumWidth = 6;
             colProducto.Name = "colProducto";
             // 
             // colTotal
             // 
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(27, 185, 190);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            colTotal.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.BackColor = Color.FromArgb(27, 185, 190);
+            dataGridViewCellStyle9.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            colTotal.DefaultCellStyle = dataGridViewCellStyle9;
             colTotal.HeaderText = "Total";
             colTotal.MinimumWidth = 6;
             colTotal.Name = "colTotal";
@@ -247,9 +247,9 @@
             // colFecha
             // 
             colFecha.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(27, 185, 190);
-            dataGridViewCellStyle5.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            colFecha.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.BackColor = Color.FromArgb(27, 185, 190);
+            dataGridViewCellStyle10.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            colFecha.DefaultCellStyle = dataGridViewCellStyle10;
             colFecha.HeaderText = "Fecha";
             colFecha.MinimumWidth = 6;
             colFecha.Name = "colFecha";
@@ -378,7 +378,7 @@
             ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
             panelContenido.ResumeLayout(false);
             panelContenido.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvVentas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvVentasRecientes).EndInit();
             panelClientes.ResumeLayout(false);
             panelClientes.PerformLayout();
             panelVentas.ResumeLayout(false);
@@ -409,7 +409,7 @@
         private Label lblCantidadC;
         private Label lblClientes;
         private Label lblVrecientes;
-        private DataGridView dgvVentas;
+        private DataGridView dgvVentasRecientes;
         private DataGridViewTextBoxColumn colID;
         private DataGridViewTextBoxColumn colCliente;
         private DataGridViewTextBoxColumn colProducto;
