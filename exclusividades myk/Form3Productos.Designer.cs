@@ -132,6 +132,7 @@
             panelMenu.Name = "panelMenu";
             panelMenu.Size = new Size(300, 900);
             panelMenu.TabIndex = 7;
+            panelMenu.Paint += panelMenu_Paint;
             // 
             // pictureLogo
             // 

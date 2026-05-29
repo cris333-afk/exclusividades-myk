@@ -34,7 +34,7 @@
             btnAgregarCliente = new Button();
             btnEliminarCliente = new Button();
             dgvClientes = new DataGridView();
-            panel1 = new Panel();
+            panelCliente = new Panel();
             pictureBox1 = new PictureBox();
             panelTop = new Panel();
             label1 = new Label();
@@ -43,7 +43,7 @@
             label4 = new Label();
             label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
-            panel1.SuspendLayout();
+            panelCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -118,15 +118,16 @@
             dgvClientes.Size = new Size(930, 620);
             dgvClientes.TabIndex = 5;
             // 
-            // panel1
+            // panelCliente
             // 
-            panel1.BackColor = Color.FromArgb(27, 185, 190);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Dock = DockStyle.Left;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(320, 900);
-            panel1.TabIndex = 6;
+            panelCliente.BackColor = Color.FromArgb(27, 185, 190);
+            panelCliente.Controls.Add(pictureBox1);
+            panelCliente.Dock = DockStyle.Left;
+            panelCliente.Location = new Point(0, 0);
+            panelCliente.Name = "panelCliente";
+            panelCliente.Size = new Size(320, 900);
+            panelCliente.TabIndex = 6;
+            panelCliente.Paint += panelCliente_Paint;
             // 
             // pictureBox1
             // 
@@ -147,6 +148,7 @@
             panelTop.Name = "panelTop";
             panelTop.Size = new Size(1080, 50);
             panelTop.TabIndex = 9;
+            panelTop.Paint += panelTop_Paint;
             // 
             // label1
             // 
@@ -215,7 +217,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(panelTop);
-            Controls.Add(panel1);
+            Controls.Add(panelCliente);
             Controls.Add(dgvClientes);
             Controls.Add(btnEliminarCliente);
             Controls.Add(btnAgregarCliente);
@@ -227,7 +229,7 @@
             Text = "Form5Cliente";
             Load += Form5Cliente_Load;
             ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
-            panel1.ResumeLayout(false);
+            panelCliente.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -241,7 +243,7 @@
         private Button btnAgregarCliente;
         private Button btnEliminarCliente;
         private DataGridView dgvClientes;
-        private Panel panel1;
+        private Panel panelCliente;
         private PictureBox pictureBox1;
         private Panel panelTop;
         private Label label1;

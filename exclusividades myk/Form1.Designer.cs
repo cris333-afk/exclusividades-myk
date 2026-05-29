@@ -35,16 +35,12 @@
             lblContrasena = new Label();
             lblLogin = new Label();
             btnLogin = new Button();
-            btnCerrar = new PictureBox();
-            btnMinimizar = new PictureBox();
             txtUsuario = new TextBox();
             txtContraseña = new TextBox();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)btnCerrar).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)btnMinimizar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -58,6 +54,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(320, 550);
             panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint_1;
             // 
             // picLogo
             // 
@@ -119,28 +116,6 @@
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
             // 
-            // btnCerrar
-            // 
-            btnCerrar.Image = (Image)resources.GetObject("btnCerrar.Image");
-            btnCerrar.Location = new Point(969, 0);
-            btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(33, 21);
-            btnCerrar.SizeMode = PictureBoxSizeMode.Zoom;
-            btnCerrar.TabIndex = 5;
-            btnCerrar.TabStop = false;
-            btnCerrar.Click += btnCerrar_Click;
-            // 
-            // btnMinimizar
-            // 
-            btnMinimizar.Image = (Image)resources.GetObject("btnMinimizar.Image");
-            btnMinimizar.Location = new Point(930, 0);
-            btnMinimizar.Name = "btnMinimizar";
-            btnMinimizar.Size = new Size(33, 21);
-            btnMinimizar.SizeMode = PictureBoxSizeMode.Zoom;
-            btnMinimizar.TabIndex = 6;
-            btnMinimizar.TabStop = false;
-            btnMinimizar.Click += btnMinimizar_Click;
-            // 
             // txtUsuario
             // 
             txtUsuario.BackColor = Color.White;
@@ -194,14 +169,12 @@
             Controls.Add(pictureBox1);
             Controls.Add(txtContraseña);
             Controls.Add(txtUsuario);
-            Controls.Add(btnMinimizar);
-            Controls.Add(btnCerrar);
             Controls.Add(btnLogin);
             Controls.Add(lblLogin);
             Controls.Add(lblContrasena);
             Controls.Add(lbUsuario);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Form1";
             Opacity = 0.9D;
             StartPosition = FormStartPosition.CenterScreen;
@@ -210,8 +183,6 @@
             MouseDown += Form1_MouseDown;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
-            ((System.ComponentModel.ISupportInitialize)btnCerrar).EndInit();
-            ((System.ComponentModel.ISupportInitialize)btnMinimizar).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
@@ -225,8 +196,6 @@
         private Label lblContrasena;
         private Label lblLogin;
         private Button btnLogin;
-        private PictureBox btnCerrar;
-        private PictureBox btnMinimizar;
         private PictureBox picLogo;
         private TextBox txtUsuario;
         private TextBox txtContraseña;

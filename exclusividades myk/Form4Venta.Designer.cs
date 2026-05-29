@@ -238,6 +238,7 @@
             panelventa.Name = "panelventa";
             panelventa.Size = new Size(376, 919);
             panelventa.TabIndex = 14;
+            panelventa.Paint += panelventa_Paint;
             // 
             // panel1
             // 
@@ -248,6 +249,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(295, 900);
             panel1.TabIndex = 15;
+            panel1.Paint += panel1_Paint;
             // 
             // pictureBox1
             // 
@@ -276,6 +278,7 @@
             Controls.Add(btnEliminar);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Form4Venta";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Form4Venta";
             Load += Form4Venta_Load;
             ((System.ComponentModel.ISupportInitialize)nudCantidad).EndInit();

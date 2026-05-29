@@ -118,6 +118,8 @@ namespace exclusividades_myk
             cmbCliente.SelectedIndex = 0;
         }
 
+
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             if (cmbProducto.SelectedIndex == -1)
@@ -284,6 +286,56 @@ namespace exclusividades_myk
                 "Venta realizada");
 
             LimpiarVenta();
+        }
+
+        private void panelventa_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+            // Círculo grande superior
+            using (SolidBrush brush1 = new SolidBrush(Color.FromArgb(40, 255, 255, 255)))
+            {
+                g.FillEllipse(brush1, -80, -50, 220, 220);
+            }
+
+            // Círculo medio
+            using (SolidBrush brush2 = new SolidBrush(Color.FromArgb(25, 255, 255, 255)))
+            {
+                g.FillEllipse(brush2, 120, 200, 180, 180);
+            }
+
+            // Círculo inferior
+            using (SolidBrush brush3 = new SolidBrush(Color.FromArgb(18, 255, 255, 255)))
+            {
+                g.FillEllipse(brush3, -50, 450, 250, 250);
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+            // Círculo grande superior
+            using (SolidBrush brush1 = new SolidBrush(Color.FromArgb(40, 255, 255, 255)))
+            {
+                g.FillEllipse(brush1, -80, -50, 220, 220);
+            }
+
+            // Círculo medio
+            using (SolidBrush brush2 = new SolidBrush(Color.FromArgb(25, 255, 255, 255)))
+            {
+                g.FillEllipse(brush2, 120, 200, 180, 180);
+            }
+
+            // Círculo inferior
+            using (SolidBrush brush3 = new SolidBrush(Color.FromArgb(18, 255, 255, 255)))
+            {
+                g.FillEllipse(brush3, -50, 450, 250, 250);
+            }
         }
     }
 }

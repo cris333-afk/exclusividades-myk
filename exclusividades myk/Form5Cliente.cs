@@ -15,8 +15,8 @@ namespace exclusividades_myk
         public Form5Cliente(Form2 frm)
         {
             InitializeComponent();
-           menu=frm;
-            
+            menu = frm;
+
         }
         private void ActualizarListaClientes()
         {
@@ -65,6 +65,58 @@ namespace exclusividades_myk
                 Sistema.Clientes.RemoveAt(fila);
                 menu.ActualizarContadorClientes();
                 ActualizarListaClientes();
+            }
+        }
+
+
+
+        private void panelTop_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+            // Círculo grande superior
+            using (SolidBrush brush1 = new SolidBrush(Color.FromArgb(40, 255, 255, 255)))
+            {
+                g.FillEllipse(brush1, -80, -50, 220, 220);
+            }
+
+            // Círculo medio
+            using (SolidBrush brush2 = new SolidBrush(Color.FromArgb(25, 255, 255, 255)))
+            {
+                g.FillEllipse(brush2, 120, 200, 180, 180);
+            }
+
+            // Círculo inferior
+            using (SolidBrush brush3 = new SolidBrush(Color.FromArgb(18, 255, 255, 255)))
+            {
+                g.FillEllipse(brush3, -50, 450, 250, 250);
+            }
+        }
+
+        private void panelCliente_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+            // Círculo grande superior
+            using (SolidBrush brush1 = new SolidBrush(Color.FromArgb(40, 255, 255, 255)))
+            {
+                g.FillEllipse(brush1, -80, -50, 220, 220);
+            }
+
+            // Círculo medio
+            using (SolidBrush brush2 = new SolidBrush(Color.FromArgb(25, 255, 255, 255)))
+            {
+                g.FillEllipse(brush2, 120, 200, 180, 180);
+            }
+
+            // Círculo inferior
+            using (SolidBrush brush3 = new SolidBrush(Color.FromArgb(18, 255, 255, 255)))
+            {
+                g.FillEllipse(brush3, -50, 450, 250, 250);
             }
         }
     }
