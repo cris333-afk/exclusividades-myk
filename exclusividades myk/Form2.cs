@@ -207,47 +207,58 @@ namespace exclusividades_myk
 
         public void MostrarVentasRecientes()
         {
-            dgvVentasRecientes .Rows.Clear();
-
-            var recientes =
-                Sistema.Ventas
-                .OrderByDescending(
-                    v => v.Fecha)
-                .Take(10);
-
-            foreach (Venta v in recientes)
+            try
             {
-                string productos = "";
+                dgvVentasRecientes.Rows.Clear();
 
-                foreach (DetalleVenta d in v.Detalles)
+                var recientes =
+                    Sistema.Ventas
+                    .OrderByDescending(
+                        v => v.Fecha)
+                    .Take(5);
+
+                foreach (Venta v in recientes)
                 {
-                    productos +=
-                        d.Producto.Nombre +
-                        " x" +
-                        d.Cantidad +
-                        ", ";
-                }
+                    string productos = "";
 
-                if (productos.Length > 0)
-                {
-                    productos =
-                        productos.Substring(
-                            0,
-                            productos.Length - 2);
-                }
+                    foreach (DetalleVenta d in v.Detalles)
+                    {
+                        productos +=
+                            d.Producto.Nombre +
+                            " x" +
+                            d.Cantidad +
+                            ", ";
+                    }
 
-                dgvVentasRecientes.Rows.Add(
-                    v.Id,
-                    v.Cliente != null
-                        ? v.Cliente.Nombre
-                        : "Sin cliente",
-                    productos,
-                    "₡" + v.Total.ToString("N2"),
-                    v.Fecha.ToShortDateString()
-                );
+                    if (productos.Length > 0)
+                    {
+                        productos =
+                            productos.Substring(
+                                0,
+                                productos.Length - 2);
+                    }
+
+                    dgvVentasRecientes.Rows.Add(
+                        v.Id,
+                        v.Cliente != null
+                            ? v.Cliente.Nombre
+                            : "Sin cliente",
+                        productos,
+                        "₡" + v.Total.ToString("N2"),
+                        v.Fecha.ToShortDateString()
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error al mostrar ventas: " +
+                    ex.Message);
             }
         }
     }
+        }
+    
 
-}
+
 
