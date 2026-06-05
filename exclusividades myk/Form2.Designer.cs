@@ -36,7 +36,7 @@
             DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
             panelMenu = new Panel();
             picLogo = new PictureBox();
-            btnInventario = new Button();
+            btnRegistrarU = new Button();
             btnSalir = new Button();
             btnReportes = new Button();
             btnClientes = new Button();
@@ -72,7 +72,7 @@
             // 
             panelMenu.BackColor = Color.FromArgb(27, 185, 190);
             panelMenu.Controls.Add(picLogo);
-            panelMenu.Controls.Add(btnInventario);
+            panelMenu.Controls.Add(btnRegistrarU);
             panelMenu.Controls.Add(btnSalir);
             panelMenu.Controls.Add(btnReportes);
             panelMenu.Controls.Add(btnClientes);
@@ -97,17 +97,18 @@
             picLogo.TabIndex = 6;
             picLogo.TabStop = false;
             // 
-            // btnInventario
+            // btnRegistrarU
             // 
-            btnInventario.BackColor = Color.White;
-            btnInventario.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnInventario.ForeColor = Color.FromArgb(80, 80, 80);
-            btnInventario.Location = new Point(28, 290);
-            btnInventario.Name = "btnInventario";
-            btnInventario.Size = new Size(170, 45);
-            btnInventario.TabIndex = 2;
-            btnInventario.Text = "Inventario";
-            btnInventario.UseVisualStyleBackColor = false;
+            btnRegistrarU.BackColor = Color.White;
+            btnRegistrarU.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRegistrarU.ForeColor = Color.FromArgb(80, 80, 80);
+            btnRegistrarU.Location = new Point(28, 290);
+            btnRegistrarU.Name = "btnRegistrarU";
+            btnRegistrarU.Size = new Size(170, 45);
+            btnRegistrarU.TabIndex = 2;
+            btnRegistrarU.Text = "Registrar Usuario";
+            btnRegistrarU.UseVisualStyleBackColor = false;
+            btnRegistrarU.Click += btnRegistrarU_Click;
             // 
             // btnSalir
             // 
@@ -394,7 +395,7 @@
         private Panel panelContenido;
         private Button btnReportes;
         private Button btnClientes;
-        private Button btnInventario;
+        private Button btnRegistrarU;
         private Button btnVentas;
         private Button btnProductos;
         private Button btnSalir;

@@ -70,21 +70,28 @@ namespace exclusividades_myk
         private void btnLogin_Click(object sender, EventArgs e)
         {
 
-            var usuario = Sistema.Usuarios.FirstOrDefault
-   (
+            var usuario = Sistema.Usuarios.FirstOrDefault(
        u => u.NombreUsuario == txtUsuario.Text &&
-            u.Contraseña == txtContraseña.Text
-   );
+            u.Contraseña == txtContraseña.Text);
 
             if (usuario != null)
             {
-                this.DialogResult = DialogResult.OK;
+                Sistema.UsuarioActual = usuario;
+
+                Form2 menu = new Form2();
+                menu.Show();
+
+                this.Hide();
             }
             else
             {
                 MessageBox.Show("Credenciales incorrectas");
             }
         }
+            
+
+
+
 
         private void panel1_Paint_1(object sender, PaintEventArgs e)
         {

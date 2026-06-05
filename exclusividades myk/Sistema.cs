@@ -17,5 +17,7 @@ namespace exclusividades_myk
 
         public static List<Venta> Ventas =
             new List<Venta>();
+
+        public static Usuario UsuarioActual;
     }
 }

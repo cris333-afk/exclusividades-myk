@@ -19,7 +19,7 @@ namespace exclusividades_myk
             EstiloBoton(btnProductos);
             EstiloBoton(btnVentas);
             EstiloBoton(btnReportes);
-            EstiloBoton(btnInventario);
+            EstiloBoton(btnRegistrarU);
             EstiloBoton(btnSalir);
 
             this.DoubleBuffered = true;
@@ -185,6 +185,8 @@ namespace exclusividades_myk
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            Sistema.UsuarioActual = null;
+
             Form1 login = new Form1();
             login.Show();
 
@@ -256,8 +258,15 @@ namespace exclusividades_myk
                     ex.Message);
             }
         }
-    }
+
+        private void btnRegistrarU_Click(object sender, EventArgs e)
+        {
+            Form7Usuarios frm = new Form7Usuarios();
+
+            frm.ShowDialog();
         }
+    }
+}
     
 
 
