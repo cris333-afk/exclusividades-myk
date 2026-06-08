@@ -38,6 +38,8 @@ namespace exclusividades_myk
             cmbRol.SelectedIndex = 0;
 
             MostrarUsuarios();
+
+
         }
 
         private void MostrarUsuarios()
@@ -61,6 +63,14 @@ namespace exclusividades_myk
                 return;
             }
 
+            if (Sistema.Usuarios.Any(
+    u => u.Contraseña == txtContraseña.Text))
+            {
+                MessageBox.Show(
+                    "Esa contraseña no se puede utilizar");
+                return;
+            }
+
             Usuario nuevo =
                 new Usuario(
                     txtUsuario.Text,
@@ -75,6 +85,46 @@ namespace exclusividades_myk
             MessageBox.Show(
                 "Usuario registrado");
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvUsuarios.SelectedRows.Count == 0)
+            {
+                MessageBox.Show(
+                    "Seleccione un usuario");
+                return;
+            }
+
+            string nombreUsuario =
+                dgvUsuarios.SelectedRows[0]
+                .Cells[0]
+                .Value
+                .ToString();
+
+            Usuario usuario =
+                Sistema.Usuarios
+                .FirstOrDefault(
+                    u => u.NombreUsuario ==
+                         nombreUsuario);
+
+            if (usuario != null)
+            {
+                if (usuario.NombreUsuario == "admin")
+                {
+                    MessageBox.Show(
+                        "No se puede eliminar el administrador principal");
+                    return;
+                }
+
+                Sistema.Usuarios.Remove(
+                    usuario);
+
+                MostrarUsuarios();
+
+                MessageBox.Show(
+                    "Usuario eliminado");
+            }
+        }
     }
-    }
+}
 

@@ -39,9 +39,10 @@ namespace exclusividades_myk
         }
         public void ActualizarContadorVentas()
         {
+            double totalVentas = Sistema.Ventas.Sum(v => v.Total);
+
             lblCantidadV.Text =
-        Sistema.Ventas.Count
-        .ToString();
+                "₡" + totalVentas.ToString("N2");
         }
         public void ActualizarContadorProductos()
         {
@@ -262,6 +263,14 @@ namespace exclusividades_myk
         private void btnRegistrarU_Click(object sender, EventArgs e)
         {
             Form7Usuarios frm = new Form7Usuarios();
+
+            frm.ShowDialog();
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            Form6Reporte frm =
+       new Form6Reporte();
 
             frm.ShowDialog();
         }

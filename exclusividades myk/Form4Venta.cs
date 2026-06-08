@@ -267,13 +267,14 @@ namespace exclusividades_myk
                     d => d.Subtotal);
 
             Venta nuevaVenta =
-                new Venta(
-                    Sistema.Ventas.Count + 1,
-                    clienteVenta,
-                    new List<DetalleVenta>(
-                        carrito),
-                    total,
-                    DateTime.Now);
+    new Venta(
+        Sistema.Ventas.Count + 1,
+        clienteVenta,
+        new List<DetalleVenta>(
+            carrito),
+        total,
+        DateTime.Now,
+        Sistema.UsuarioActual.NombreUsuario);
 
             Sistema.Ventas.Add(
     nuevaVenta);

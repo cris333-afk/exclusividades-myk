@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             panelMenu = new Panel();
             picLogo = new PictureBox();
             btnRegistrarU = new Button();
@@ -113,11 +113,13 @@
             // btnSalir
             // 
             btnSalir.BackColor = Color.White;
+            btnSalir.Cursor = Cursors.Hand;
+            btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSalir.ForeColor = Color.FromArgb(80, 80, 80);
-            btnSalir.Location = new Point(62, 409);
+            btnSalir.Location = new Point(64, 409);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(94, 29);
+            btnSalir.Size = new Size(92, 38);
             btnSalir.TabIndex = 5;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = false;
@@ -134,6 +136,7 @@
             btnReportes.TabIndex = 4;
             btnReportes.Text = "Reportes";
             btnReportes.UseVisualStyleBackColor = false;
+            btnReportes.Click += btnReportes_Click;
             // 
             // btnClientes
             // 
@@ -211,36 +214,36 @@
             // 
             // colID
             // 
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(27, 185, 190);
-            dataGridViewCellStyle6.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            colID.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(27, 185, 190);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            colID.DefaultCellStyle = dataGridViewCellStyle1;
             colID.HeaderText = "ID";
             colID.MinimumWidth = 6;
             colID.Name = "colID";
             // 
             // colCliente
             // 
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(27, 185, 190);
-            dataGridViewCellStyle7.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            colCliente.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(27, 185, 190);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            colCliente.DefaultCellStyle = dataGridViewCellStyle2;
             colCliente.HeaderText = "Cliente";
             colCliente.MinimumWidth = 6;
             colCliente.Name = "colCliente";
             // 
             // colProducto
             // 
-            dataGridViewCellStyle8.BackColor = Color.FromArgb(27, 185, 190);
-            dataGridViewCellStyle8.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            colProducto.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(27, 185, 190);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            colProducto.DefaultCellStyle = dataGridViewCellStyle3;
             colProducto.HeaderText = "Producto";
             colProducto.MinimumWidth = 6;
             colProducto.Name = "colProducto";
             // 
             // colTotal
             // 
-            dataGridViewCellStyle9.BackColor = Color.FromArgb(27, 185, 190);
-            dataGridViewCellStyle9.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            colTotal.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(27, 185, 190);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            colTotal.DefaultCellStyle = dataGridViewCellStyle4;
             colTotal.HeaderText = "Total";
             colTotal.MinimumWidth = 6;
             colTotal.Name = "colTotal";
@@ -248,9 +251,9 @@
             // colFecha
             // 
             colFecha.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle10.BackColor = Color.FromArgb(27, 185, 190);
-            dataGridViewCellStyle10.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            colFecha.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(27, 185, 190);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            colFecha.DefaultCellStyle = dataGridViewCellStyle5;
             colFecha.HeaderText = "Fecha";
             colFecha.MinimumWidth = 6;
             colFecha.Name = "colFecha";
@@ -296,9 +299,9 @@
             lblClientes.ForeColor = Color.FromArgb(70, 70, 70);
             lblClientes.Location = new Point(40, 13);
             lblClientes.Name = "lblClientes";
-            lblClientes.Size = new Size(97, 28);
+            lblClientes.Size = new Size(84, 28);
             lblClientes.TabIndex = 0;
-            lblClientes.Text = "CLIENTES";
+            lblClientes.Text = "Clientes";
             // 
             // panelVentas
             // 
@@ -313,11 +316,11 @@
             // lblCantidadV
             // 
             lblCantidadV.AutoSize = true;
-            lblCantidadV.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCantidadV.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             lblCantidadV.ForeColor = Color.FromArgb(27, 185, 190);
-            lblCantidadV.Location = new Point(67, 44);
+            lblCantidadV.Location = new Point(17, 52);
             lblCantidadV.Name = "lblCantidadV";
-            lblCantidadV.Size = new Size(46, 54);
+            lblCantidadV.Size = new Size(40, 46);
             lblCantidadV.TabIndex = 1;
             lblCantidadV.Text = "0";
             // 
@@ -326,11 +329,11 @@
             lblVentas.AutoSize = true;
             lblVentas.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblVentas.ForeColor = Color.FromArgb(70, 70, 70);
-            lblVentas.Location = new Point(46, 13);
+            lblVentas.Location = new Point(8, 13);
             lblVentas.Name = "lblVentas";
-            lblVentas.Size = new Size(84, 28);
+            lblVentas.Size = new Size(159, 28);
             lblVentas.TabIndex = 0;
-            lblVentas.Text = "VENTAS";
+            lblVentas.Text = "Ingresos Totales";
             // 
             // panelProductos
             // 
@@ -358,11 +361,11 @@
             lblProductos.AutoSize = true;
             lblProductos.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblProductos.ForeColor = Color.FromArgb(70, 70, 70);
-            lblProductos.Location = new Point(20, 13);
+            lblProductos.Location = new Point(30, 13);
             lblProductos.Name = "lblProductos";
-            lblProductos.Size = new Size(127, 28);
+            lblProductos.Size = new Size(104, 28);
             lblProductos.TabIndex = 0;
-            lblProductos.Text = "PRODUCTOS";
+            lblProductos.Text = "Productos";
             // 
             // Form2
             // 

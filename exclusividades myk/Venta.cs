@@ -17,19 +17,26 @@ namespace exclusividades_myk
 
         public DateTime Fecha { get; set; }
 
+        public string UsuarioVenta { get; set; }
+
         public Venta(
             int id,
             Cliente cliente,
             List<DetalleVenta> detalles,
             double total,
-            DateTime fecha)
+            DateTime fecha,
+            string usuarioVenta)
         {
-            Id = id;
-            Cliente = cliente;
-            Detalles = detalles;
-            Total = total;
-            Fecha = fecha;
+            {
+                Id = id;
+                Cliente = cliente;
+                Detalles = detalles;
+                Total = total;
+                Fecha = fecha;
+                UsuarioVenta = usuarioVenta;
+            }
         }
     }
 }
+
 
