@@ -56,15 +56,24 @@ namespace exclusividades_myk
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            if (txtUsuario.Text.Trim() == "")
+            if (txtUsuario.Text.Trim() == "" ||
+    txtContraseña.Text.Trim() == "")
             {
                 MessageBox.Show(
-                    "Ingrese usuario");
+                    "Debe completar todos los campos");
                 return;
             }
 
             if (Sistema.Usuarios.Any(
-    u => u.Contraseña == txtContraseña.Text))
+                u => u.NombreUsuario == txtUsuario.Text))
+            {
+                MessageBox.Show(
+                    "Ese usuario ya existe");
+                return;
+            }
+
+            if (Sistema.Usuarios.Any(
+                u => u.Contraseña == txtContraseña.Text))
             {
                 MessageBox.Show(
                     "Esa contraseña no se puede utilizar");
@@ -81,6 +90,10 @@ namespace exclusividades_myk
                 nuevo);
 
             MostrarUsuarios();
+
+            txtUsuario.Clear();
+            txtContraseña.Clear();
+            cmbRol.SelectedIndex = 0;
 
             MessageBox.Show(
                 "Usuario registrado");

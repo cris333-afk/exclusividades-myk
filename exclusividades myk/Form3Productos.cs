@@ -32,13 +32,50 @@ namespace exclusividades_myk
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if (txtId.Text.Trim() == "" ||
+        txtNombre.Text.Trim() == "" ||
+        txtPrecio.Text.Trim() == "" ||
+        txtStock.Text.Trim() == "")
+            {
+                MessageBox.Show(
+                    "Debe completar todos los campos");
+
+                return;
+            }
+
+            int id;
+            double precio;
+            int stock;
+
+            if (!int.TryParse(txtId.Text, out id))
+            {
+                MessageBox.Show(
+                    "El ID debe ser un número");
+                return;
+            }
+
+            if (!double.TryParse(txtPrecio.Text, out precio))
+            {
+                MessageBox.Show(
+                    "El precio debe ser un número");
+                return;
+            }
+
+            if (!int.TryParse(txtStock.Text, out stock))
+            {
+                MessageBox.Show(
+                    "El stock debe ser un número");
+                return;
+            }
+
             Producto nuevo = new Producto(
-           int.Parse(txtId.Text),
-           txtNombre.Text,
-           double.Parse(txtPrecio.Text),
-           int.Parse(txtStock.Text));
+                id,
+                txtNombre.Text,
+                precio,
+                stock);
 
             Sistema.Productos.Add(nuevo);
+
             menu.ActualizarContadorProductos();
 
             ActualizarLista();
@@ -47,6 +84,9 @@ namespace exclusividades_myk
             txtNombre.Clear();
             txtPrecio.Clear();
             txtStock.Clear();
+
+            MessageBox.Show(
+                "Producto agregado correctamente");
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

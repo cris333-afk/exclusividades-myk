@@ -41,18 +41,67 @@ namespace exclusividades_myk
 
         private void btnAgregarCliente_Click(object sender, EventArgs e)
         {
+            if (txtIdCliente.Text.Trim() == "" ||
+         txtNombreCliente.Text.Trim() == "" ||
+         txtTelefono.Text.Trim() == "")
+            {
+                MessageBox.Show(
+                    "Debe completar todos los campos");
+
+                return;
+            }
+
+            int id;
+
+            if (!int.TryParse(txtIdCliente.Text, out id))
+            {
+                MessageBox.Show(
+                    "El ID debe ser numérico");
+
+                return;
+            }
+
+            if (!long.TryParse(txtTelefono.Text, out _))
+            {
+                MessageBox.Show(
+                    "El teléfono debe ser numérico");
+
+                return;
+            }
+
+            if (txtNombreCliente.Text.Any(char.IsDigit))
+            {
+                MessageBox.Show(
+                    "El nombre no puede contener números");
+
+                return;
+            }
+
+            if (Sistema.Clientes.Any(c => c.Id == id))
+            {
+                MessageBox.Show(
+                    "Ya existe un cliente con ese ID");
+
+                return;
+            }
+
             Cliente nuevo = new Cliente(
-        int.Parse(txtIdCliente.Text),
-        txtNombreCliente.Text,
-        txtTelefono.Text);
+                id,
+                txtNombreCliente.Text,
+                txtTelefono.Text);
 
             Sistema.Clientes.Add(nuevo);
+
             menu.ActualizarContadorClientes();
+
             ActualizarListaClientes();
 
             txtIdCliente.Clear();
             txtNombreCliente.Clear();
             txtTelefono.Clear();
+
+            MessageBox.Show(
+                "Cliente agregado correctamente");
         }
 
         private void btnEliminarCliente_Click(object sender, EventArgs e)
