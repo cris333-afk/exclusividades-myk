@@ -278,7 +278,7 @@
             Controls.Add(btnEliminar);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Form4Venta";
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form4Venta";
             Load += Form4Venta_Load;
             ((System.ComponentModel.ISupportInitialize)nudCantidad).EndInit();

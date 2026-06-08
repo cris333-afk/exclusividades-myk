@@ -316,11 +316,11 @@
             // lblCantidadV
             // 
             lblCantidadV.AutoSize = true;
-            lblCantidadV.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            lblCantidadV.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblCantidadV.ForeColor = Color.FromArgb(27, 185, 190);
-            lblCantidadV.Location = new Point(17, 52);
+            lblCantidadV.Location = new Point(8, 54);
             lblCantidadV.Name = "lblCantidadV";
-            lblCantidadV.Size = new Size(40, 46);
+            lblCantidadV.Size = new Size(35, 41);
             lblCantidadV.TabIndex = 1;
             lblCantidadV.Text = "0";
             // 
@@ -376,6 +376,7 @@
             Controls.Add(panelMenu);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Form2";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";
             Load += Form2_Load;
             panelMenu.ResumeLayout(false);

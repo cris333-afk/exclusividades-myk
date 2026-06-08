@@ -87,11 +87,11 @@
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.Font = new Font("Segoe UI Black", 22.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = Color.White;
             lblTitulo.Location = new Point(250, 41);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(203, 50);
+            lblTitulo.Size = new Size(210, 50);
             lblTitulo.TabIndex = 3;
             lblTitulo.Text = "REPORTES";
             // 
@@ -142,6 +142,7 @@
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Form6Reporte";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form6Reporte";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

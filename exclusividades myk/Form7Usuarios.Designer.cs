@@ -115,9 +115,9 @@
             label1.ForeColor = Color.White;
             label1.Location = new Point(300, 20);
             label1.Name = "label1";
-            label1.Size = new Size(212, 50);
+            label1.Size = new Size(180, 50);
             label1.TabIndex = 7;
-            label1.Text = "USUARIOS";
+            label1.Text = "Usuarios";
             // 
             // label2
             // 
